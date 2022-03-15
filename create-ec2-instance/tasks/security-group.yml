@@ -1,0 +1,14 @@
+---
+- name: Create Security Group
+  ec2_group:
+    name: "{{ security_group_name }}"
+    description: "Ansible managed security group" 
+    vpc_id: "{{ vpc_id }}"
+    region: "{{ region_name }}"
+    rules:
+      - proto: tcp
+        ports:
+          - 22
+        cidr_ip: "0.0.0.0/0"
+        rule_desc: "allow port 22 from world"
+  register: security_group

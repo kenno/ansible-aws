@@ -1,0 +1,7 @@
+---
+- name: Create an instance in default VPC
+  block:
+    - import_tasks: key-pair.yml
+    - import_tasks: network-info.yml
+    - import_tasks: security-group.yml
+    - import_tasks: ec2.yml

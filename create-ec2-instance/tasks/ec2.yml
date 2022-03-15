@@ -1,0 +1,15 @@
+---
+- name: Create EC2 instances
+  amazon.aws.ec2_instance:
+    name: "{{ instance_name }}"
+    key_name: "{{ key_name }}"
+    region: "{{ region_name }}"
+    image_id: "{{ ami_id }}"
+    vpc_subnet_id: "{{ random_subnet }}"
+    instance_type: "{{ instance_type }}"
+    tags:
+      Env: Testing
+      launcher: ansible
+    network:
+      assign_public_ip: true
+  register: ec2
