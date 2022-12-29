@@ -1,10 +1,12 @@
 ---
 # defaults vars for create-ec2-instances
 
-region_name: 'ap-southeast-2'
-key_name: "ansibled-{{ region_name }}-rsa"  # only RSA keypair supported at this time 2022.03.02
-ami_id: "ami-0646b10ec20a40c81"               # Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type (64-bit x86)
-instance_type: 't2.micro'
-instance_name: 'ansibuilt'
+region_name: "ap-southeast-2"
+key_type: "ed25519"                           # Choices: "rsa", "ed25519"
+key_name: "ansibuilt-{{ region_name }}-{{ key_type }}"
+ami_id: "ami-0646b10ec20a40c81"               # Amazon Linux 2 AMI (HVM)
+                                              # - Kernel 5.10, SSD Volume Type (64-bit x86)
+instance_type: "t2.micro"
+instance_name: "ansibuilt"
 
-security_group_name: "{{ instance_name }}-sg"
+security_group_name: ''

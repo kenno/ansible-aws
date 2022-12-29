@@ -11,4 +11,5 @@
           - 22
         cidr_ip: "0.0.0.0/0"
         rule_desc: "allow port 22 from world"
+  when: security_group_name | length > 0
   register: security_group

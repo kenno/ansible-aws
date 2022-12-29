@@ -63,9 +63,11 @@ Please check the default variables set in `defaults\main.yml`.
 REGION='eu-west-1'              # Ireland
 AMI="ami-002d3240b69a0ef4e"     # RHEL-7.9_HVM-20220222-x86_64-0-Hourly2-GP2 -  (eu-west-1)
 NAME='rhel7.9-nfs-client'
-KEY_NAME="my-${REGION}-rsa"
+KEY_NAME="my-${REGION}"
 SG_NAME="rhel7.9-sg"
 
 ❯ ansible-playbook create-ec2.yml -i inventory \
-    -e "instance_type=t2.micro instance_name=${NAME} ami_id=${AMI} region_name=${REGION} key_name=${KEY_NAME} security_group_name=${SG_NAME}"
+    -e "instance_type=t2.micro instance_name=${NAME} \
+    ami_id=${AMI} region_name=${REGION} \
+    key_name=${KEY_NAME} security_group_name=${SG_NAME}"
 ```
