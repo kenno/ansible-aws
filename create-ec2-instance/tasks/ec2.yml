@@ -14,3 +14,11 @@
     network:
       assign_public_ip: true
   register: ec2
+
+- name: Print info about created instance
+  ansible.builtin.debug:
+    msg:
+#      - "Instance: {{ ec2 }}"
+      - "Instance ID: {{ ec2.instances[0]['instance_id'] }}"
+      - "Key Name: {{ ec2.instances[0].key_name }}"
+      - "Private IP: {{ ec2.instances[0].private_ip_address }}"
